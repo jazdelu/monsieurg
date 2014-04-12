@@ -35,16 +35,6 @@ class Theme(models.Model):
 				l.save()
 			except:
 				pass
-		else:
-			try:
-				t = Theme.objects.get(published = True)
-			except:
-				t = Theme.objects.filter(published = False)
-				if t:
-					t[0].published = True
-					t[0].save()
-				else:
-					pass
 		super(Theme, self).save(*args, **kwargs)
 
 
