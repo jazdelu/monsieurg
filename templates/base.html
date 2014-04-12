@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="季先生 礼品 "/>
+<meta name="Description" content="礼盒"/>
+<meta name="baidu-site-verification" content="b1FSHiugLr" />
+<link rel="shortcut icon" href=" /static/image/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css/">
+<link rel="stylesheet" type="text/css" href="/static/css/vegas.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/buttons.css"/>
+<link rel="stylesheet" href="/static/css/fontello.css">
+<link rel="stylesheet" type="text/css" href="/static/css/monsieurg.css"/>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe8d01e880c5cca18cd50abacba0f751b' type='text/javascript'%3E%3C/script%3E"));
+</script>
+{% block style %}
+<style>
+@media only screen and (max-height : 600px) {
+	#footer{
+		position: relative;
+		margin-top: 20px;
+	}
+}
+</style>
+{% endblock %}
+</head>
+<body>
+<!--[if lte IE 10]>
+<div id = "alert">
+	<p>2014新年快乐！Monsieur G建议您使用更高版本的浏览器来访问本网站:)（e.g. Chrome Safari Firefox or IE 10+）</p>
+</div>
+<![endif]-->
+<div id ="top">
+		<div id = "logo"><a href="/index/"><img src="/static/image/LOGO.png" height="30px"></a></div>
+	<div id = "navbar">
+		<ul id ="nav">
+			<li><a href="/order/">订购礼盒</a></li>
+			<li><a href="/review/">礼盒回顾</a>
+			</li>
+			<li><a href="http://www.pinterest.com/monsieurgee/" target="_blank">季先生所爱</a></li>
+			<li><a href="/story/">季的故事</a></li>
+		</ul>
+	</div>
+	<div id="social">
+		<a style="background-color:#ES1400;" href="http://weibo.com/MonsieurG1124" class="icon-social-weibo" target="_blank"></a>
+		<a style="background-color:#ES1400;" href="http://instagram.com/monsieurg__
+" class="icon-social-instagram" target="_blank"></a>
+		<a style="background-color:#ES1400;" href="https://www.facebook.com/pages/Monsieur-G/572605696119802" class="icon-social-facebook" target="_blank"></a>
+		<a style="background-color:#ES1400;" href="http://grooveshark.com/#!/monsieurg/playlists" class="icon-social-grooveshark" target="_blank"></a>
+	</div>
+</div>
+<div id = "content">
+	{% block page %}
+	<div class="page"></div>
+	{% endblock %}
+	{% block content %}
+	{% endblock %}
+
+</div>
+	<div id="footer">
+		<div id="bottomnav">
+		<p>
+			<a>关于我们</a>&nbsp;|&nbsp;
+			<a>合作联系</a>&nbsp;|&nbsp;
+			<a>常见问题</a>&nbsp;|&nbsp;
+			<a>隐私权声明</a>&nbsp;|&nbsp;
+			<a>快递查询</a>&nbsp;|&nbsp;
+			<a>客服邮箱:hey@monsieurg.fr</a>
+		<p>
+		<p>
+			工作时间：周一至周五9:00-21:00; 周六10:00-18:00, 周日与法定节假日休息
+		</p>
+
+		</div>
+
+	</div>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js/"></script>
+<script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+<script type="text/javascript" src="/static/js/vegas.js"></script>
+<script type="text/javascript" src="/static/js/button.js"></script>
+<script type="text/javascript" src="/static/js/slider.js"></script>
+<script type="text/javascript" src="/static/js/mg.js"></script>
+{% block js %}
+{% if slider %}
+<script>
+$(function() {
+  $.vegas('slideshow', {
+  delay:5000,
+  backgrounds:[
+  {% for i in bg_list %}
+    { src:'{{ i.image.url }}', fade:1000 },
+  {% endfor %}
+  ]
+});
+});
+</script>
+{% else %}
+<script>
+  $.vegas({
+    src:'{{ bg.image.url }}',
+    fade: 500,
+    loading : false,
+    valign: "center",
+    align: "center"
+  });
+ </script>
+ {% endif %}
+
+{% endblock %}
+</body>
+</html>

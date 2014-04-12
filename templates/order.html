@@ -1,0 +1,73 @@
+{% extends "base.html"%}
+{% block title %}Monsieur G. 礼盒订购{% endblock %}
+
+{% block page %}
+<div class="page">
+季先生为您筛选最棒的礼物，满足你的恋物情结<br/><br/>
+</div>
+{% endblock %}
+
+{% block style %}
+<style>
+#content{
+	display: block;
+	max-height:95%; 
+	margin-bottom: 20px;
+}
+
+#footer{
+	position: relative;
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+	<div id = "left">
+	<div class ="slider has-dots">
+		<ul>
+			{% for i in preview_list %}
+			<li><img src="{{ i.thumb_middle.url }}" /></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="box1">
+  &nbsp;&nbsp; &nbsp;&nbsp;{{ pt.desciption|linebreaksbr }}<br/><label>寄送时间：{{pt.deadline|date:"Y - m - j "}}</label>	
+	</div>
+	</div>
+	<div id = "right">
+		<div class="box">
+			<span class="bt">初次光临</span>
+			<hr/>
+			<ul>
+				<li>试着预定一次礼盒</li>
+				<li>您将获得与消费金额一样的积分</li>
+				<li>您的礼盒最快能于{{ pt.deadline|date:"n月d日" }}发出</li>
+				<li>季先生准备了两种不同价位的礼盒供您选择<br/>¥360 ¥560</li>
+			</ul>
+			<div class="b"><a href="javascript:void(0)" class="button button-rounded button-flat-caution btn">现在就订购</a></div>
+		</div>
+		<div class="box">
+			<span class="bt">你已经无法自拔地爱上了季先生的礼物STYLE</span>
+			<hr/>
+			<ul>
+				<li>预定季度套餐，套餐包含三份礼盒</li>
+				<li>您以“季粉”价订购礼盒套餐：<br/>¥900 ¥1480</li>
+				<li>您可以在未来的6个月内任意选择三个时间段收获礼物</li>
+				<li>您将获得与消费金额相当的积分</li>
+				<li>订购¥1480套餐将获得额外的包邮优惠</li>
+			</ul>
+			<div class="b"><a href="javascript:void(0)" class="button button-rounded button-flat-caution btn">现在就订购</a></div>
+		</div>
+	</div>
+	<div id="info" class='d'>
+		<h2>建议您使用支付宝付款</h2>
+		<p>我们的支付宝账号</p>
+		<p>pay@monsieurg.fr</p>
+		<br/>
+		<br/>
+		<br/>
+		<span>完成支付后请将支付编号及收件信息私信发送给我们的新浪微博账号<br/><a href="#">@monsieurg萌季宜品</a></span>
+	</div>
+
+{% endblock %}

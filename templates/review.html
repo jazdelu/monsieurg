@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}礼盒回顾{% endblock %}
+{% block style %}
+<style>
+@media only screen and (max-height : 700px) {
+	#footer{
+		position: relative;
+		margin-top: 20px;
+	}
+}
+</style>
+{% endblock %}
+{% block page %}
+<div class="page">
+{{ t.name }} 
+</div>
+{% endblock %}
+{% block content %}
+<div class="holder">
+	<div class="col">
+		{% for i in l %}
+		{% if forloop.counter <= 2 %}
+		<div class="hi" style="background:url({{ i.image.url_300x200}});">
+			<div class="overlay">
+				<ul>
+					{% for p in i.product.all %}
+					<li>{{ p.name }}&nbsp;{{ p.description }}&nbsp;
+					{% if p.origin %}
+						from&nbsp;{{ p.origin }}
+					{% endif %}
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		{% endif %}
+		{% endfor %}	
+	</div>
+	<div class="col">
+		{% for i in c %}
+		{% if forloop.counter < 2 %}
+		<div class="vi" style="background:url({{ i.image.url_600x400 }});">
+			{% if p.product.all %}
+			<div class="overlay">
+				<ul>
+					<li>{{ p.name }}&nbsp;{{ p.description|linebreaksbr }}&nbsp;
+					{% if p.origin %}
+						from&nbsp;{{ p.origin }}
+					{% endif %}
+					</li>
+				</ul>
+			</div>
+			{% else %}
+				&nbsp;
+			{% endif %}
+		</div>
+		{% endif %}
+		{% endfor %}
+	</div>
+	<div class="col">
+		{% for i in r %}
+		{% if forloop.counter <= 2 %}
+		<div class="hi" style="background:url({{ i.image.url_300x200 }});" >
+			<div class="overlay">
+				<ul>
+					{% for p in i.product.all %}
+					<li>{{ p.name }}&nbsp;{{ p.description }}&nbsp;
+					{% if p.origin %}
+						from&nbsp;{{ p.origin }}
+					{% endif %}
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		{% endif %}
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
