@@ -44,7 +44,7 @@ class Product_Image(models.Model):
 		ordering = ['theme','product','position']
 
 	def __unicode__(self):
-		return self.name
+		return self.image.url
 
 	def image_tag(self):
 		return u'<img src="%s" />' % self.thumb_small.url
