@@ -20,7 +20,7 @@
 	<div class="col">
 		{% for i in l %}
 		{% if forloop.counter <= 2 %}
-		<div class="hi" style="background:url({{ i.image.url_300x200}});">
+		<div class="hi" style="background:url({{ i.thumb_middle.url}});">
 			<div class="overlay">
 				<ul>
 					{% for p in i.product.all %}
@@ -39,7 +39,7 @@
 	<div class="col">
 		{% for i in c %}
 		{% if forloop.counter < 2 %}
-		<div class="vi" style="background:url({{ i.image.url_600x400 }});">
+		<div class="vi" style="background:url({{ i.thumb_big.url }});">
 			{% if p.product.all %}
 			<div class="overlay">
 				<ul>
@@ -60,7 +60,7 @@
 	<div class="col">
 		{% for i in r %}
 		{% if forloop.counter <= 2 %}
-		<div class="hi" style="background:url({{ i.image.url_300x200 }});" >
+		<div class="hi" style="background:url({{ i.thumb_middle.url}});" >
 			<div class="overlay">
 				<ul>
 					{% for p in i.product.all %}
