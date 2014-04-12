@@ -32,7 +32,7 @@ class Theme(models.Model):
 			try:
 				t = Theme.objects.get(published = True)
 				t.published = False
-				l.save()
+				t.save()
 			except:
 				pass
 		super(Theme, self).save(*args, **kwargs)
