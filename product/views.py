@@ -19,7 +19,7 @@ def review(request,tid):
 def latest(request):
 	try:
 		pt = Theme.objects.get(published = True)
-		t = Theme.objects.filter(published = False).filter(pub_date < pt.pub_date[0])
+		t = Theme.objects.filter(published = False).filter(pub_date__lte =pt.pub_date)[0]
 	except:
 		raise Http404
 	l = Product_Image.objects.filter(theme=t).filter(position='l')
