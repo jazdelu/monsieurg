@@ -83,7 +83,7 @@ class Background_Image(models.Model):
 			try:
 				b = Background_Image.objects.filter(theme = self.theme).get(static = True)
 				b.static = False
-				l.save()
+				b.save()
 			except:
 				pass
 		else:
