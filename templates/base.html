@@ -34,17 +34,19 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 	<p>2014新年快乐！Monsieur G建议您使用更高版本的浏览器来访问本网站:)（e.g. Chrome Safari Firefox or IE 10+）</p>
 </div>
 <![endif]-->
+<div class="header">
 <div id ="top">
 		<div id = "logo"><a href="/index/"><img src="/static/image/LOGO.png" height="30px"></a></div>
 	<div id = "navbar">
 		<ul id ="nav">
 			<li><a href="/order/">订购礼盒</a></li>
-			<li><a href="/review/">礼盒回顾</a>
+			<li><a href="/review/" class="review">礼盒回顾</a>
 			</li>
 			<li><a href="http://www.pinterest.com/monsieurgee/" target="_blank">季先生所爱</a></li>
 			<li><a href="/story/">季的故事</a></li>
 		</ul>
 	</div>
+
 	<div id="social">
 		<a style="background-color:#ES1400;" href="http://weibo.com/MonsieurG1124" class="icon-social-weibo" target="_blank"></a>
 		<a style="background-color:#ES1400;" href="http://instagram.com/monsieurg__
@@ -52,6 +54,13 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 		<a style="background-color:#ES1400;" href="https://www.facebook.com/pages/Monsieur-G/572605696119802" class="icon-social-facebook" target="_blank"></a>
 		<a style="background-color:#ES1400;" href="http://grooveshark.com/#!/monsieurg/playlists" class="icon-social-grooveshark" target="_blank"></a>
 	</div>
+</div>
+<div  class="subnav" > 
+	<ul>
+		{% for t in themes %}
+		<li><a href="/review/{{ t.id }}">{{ t.name }}</a></li>
+		{% endfor %}
+	</ul>
 </div>
 <div id = "content">
 	{% block page %}
@@ -110,7 +119,6 @@ $(function() {
   });
  </script>
  {% endif %}
-
 {% endblock %}
 </body>
 </html>

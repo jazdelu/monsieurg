@@ -35,13 +35,18 @@ $('.slider').unslider({
   fluid: false              //  Support responsive design. May break non-responsive designs
 });
 });
-$(function(){
-  $('.h label').mouseover(function(){
-    $('.caption').fadeIn(400);
-  });
-  $('.h label').mouseout(function(){
-    $('.h .caption').fadeOut(400);
-  });
+
+
+var timeout = ''
+$(".review").mouseover(function(){
+  $(".subnav").slideDown(300);
+}).mouseleave(function(){
+  timeout = setTimeout(function(){$(".subnav").slideUp(300);},1000);
 });
 
+$(".subnav").mouseover(function(){
+  clearTimeout(timeout)
+}).mouseleave(function(){
+  timeout = setTimeout(function(){$(".subnav").slideUp(300);},1000);
+});
 

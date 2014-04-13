@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'south',
     'theme',
     'product',
-    'partner',
+    'partner',  
 )
 
 
@@ -63,6 +63,7 @@ TEMPLATE_LOADERS = (
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
     'theme.processor.getPublishedThemeBackground',
+    'theme.processor.getReviewThemes',
 )
 
 TEMPLATE_DIRS = (

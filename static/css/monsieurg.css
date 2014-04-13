@@ -173,13 +173,7 @@ span a:hover{
 	float:left;
 	width:100px;
 }
-#nav ul{
-	list-style-type: none;
-	width:60px;
-	min-height: 100px;
-	background: #339163;
-	color: white;
-}
+
 #nav ul li{
 	text-align: left;
 	padding:5px;
@@ -201,10 +195,42 @@ span a:hover{
 	text-shadow:#ffffff 0 1px 1px;
 
 }
+.subnav{
+	display: none;
+	position: absolute;
+	top:38px;
+	width: 100%;
+	z-index: 199;
+	padding-top:3px;
+}
+.subnav ul{
+	overflow: hidden;
+	margin: 0;
+	padding:0;
+	background: #246545;
+	background: rgba(36,101,69,0.85);
+	display: block;
+	margin-top: 2px;
+	padding-left:50px;
+}
+.subnav ul li{
+	list-style: none;
+	float: left;
+}
+.subnav ul>li>a{
+	display: block;
+	color:#fff;
+	padding: 13px 25px;
+	text-align: left;
+}
+.subnav ul>li>a:hover{
+	background-color: #fff;
+	color:#000;
+}
 #content{
 	min-height: 100%;
 	text-align: center;
-	width:auto
+	width:auto;
 	text-align: center;
 	margin:0 auto;
 	position: relative;

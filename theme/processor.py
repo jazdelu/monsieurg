@@ -12,3 +12,13 @@ def getPublishedThemeBackground(request):
 		pass
 
 	return {'bg_list':bg_list,'bg':bg}
+
+def getReviewThemes(request):
+	t=''
+	try:
+		t=Theme.objects.get(published=True)
+	except:
+		pass
+
+	themes = Theme.objects.filter(published = False).filter(pub_date__lte =t.pub_date)
+	return {'themes' : themes}
