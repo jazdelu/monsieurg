@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     #(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^order/','theme.views.order', name ='order'),
-    url(r'^review/','product.views.latest', name = 'review latest'),
+    url(r'^review/$','product.views.latest', name = 'review latest'),
     url(r'^review/(?P<tid>.+)/$','product.views.review', name = 'review'),
     url(r'^story/','monsieurg.views.story', name = 'story'),
 )+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
