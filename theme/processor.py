@@ -19,6 +19,7 @@ def getReviewThemes(request):
 		t=Theme.objects.get(published=True)
 	except:
 		pass
-
+	if not t:
+		t = Themes.objects.all()[0]
 	themes = Theme.objects.filter(published = False).filter(pub_date__lte =t.pub_date)
 	return {'themes' : themes}
